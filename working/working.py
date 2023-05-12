@@ -15,11 +15,9 @@ def convert(s):
         parts = valid_format.groups()
         if int(parts[1]) > 12 or int(parts[5]) > 12:
             raise ValueError
-        else:
             #if format is correct call new_format function to convert input into 24hour format
-            starting = new_format(parts[1], parts[2], parts[3])
-            ending = new_format(parts[5], parts[6], parts[7])
-        
+        starting = new_format(parts[1], parts[2], parts[3])
+        ending = new_format(parts[5], parts[6], parts[7])
         return starting + " to " + ending
     
     else:
@@ -29,8 +27,8 @@ def convert(s):
 def new_format(hour, minutes, am_pm):
     # if time is PM then 12 o'clock shoudl be 12 in 24hour format, otherwise it shoudl be add 12
     if am_pm == "PM":
-        if hour == 12:
-            new_hour = 12
+        if hour == str(12):
+            new_hour = hour
         else:
             new_hour = int(hour) + 12
     
